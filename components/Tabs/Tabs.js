@@ -19,7 +19,7 @@ class TabLink {
     }
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class.
-    this.cards = Array.from(this.cards).map((x)=>{new TabCard(x)});
+    this.cards = Array.from(this.cards).map(item=>new TabCard(item));
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click',()=>{this.selectTab()});
@@ -44,7 +44,7 @@ class TabLink {
     const cards = document.querySelectorAll('.card');
 
     // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach((v)=>{return v.style.display = 'none'})
+    cards.forEach((v)=>{v.style.display = 'none'})
 
     // Add a class of ".active-tab" to this.tabElement
     this.tabElement.classList.add('active-tab');
@@ -61,7 +61,7 @@ class TabCard {
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
-    this.cardElement.style.display = "flex" ;
+    this.cardElement.style.display = 'flex';
   }
 
 }
@@ -76,5 +76,5 @@ class TabCard {
 
 */
 let tabs = document.querySelectorAll('.tab');
-console.log(tabs)
-tabs.forEach((value)=>{new TabLink(value)});
+// console.log(tabs)
+tabs.forEach(value=> new TabLink(value));
